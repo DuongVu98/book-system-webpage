@@ -6,7 +6,15 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./user-dashboard.component.css"]
 })
 export class UserDashboardComponent implements OnInit {
-	constructor() {}
+	showSideMenu: boolean;
+
+	constructor() {
+		this.showSideMenu = true;
+	}
 
 	ngOnInit() {}
+
+	showSideMenuToggle(){
+		this.showSideMenu = !this.showSideMenu;
+	}
 }

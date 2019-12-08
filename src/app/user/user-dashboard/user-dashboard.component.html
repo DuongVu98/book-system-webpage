@@ -1,1 +1,36 @@
-<p>user-dashboard works!</p>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer mode="side" class="sidenav" fixedInViewport=true position="start"
+        [class.mat-elevation-z10]="true">
+        <mat-toolbar color="primary" class="side-toolbar">
+            <h3>Dashboard</h3>
+            <button mat-mini-fab color="accent" class="back-icon" (click)="[drawer.toggle(),showSideMenuToggle()]"><i
+                    class="fas fa-chevron-left"></i></button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item href="#">
+                <span class="item-icon"><i class="fas fa-user"></i></span>
+                Profile
+            </a>
+            <a mat-list-item href="#">
+                <span class="item-icon"><i class="fas fa-book"></i></span>
+                Books</a>
+            <a mat-list-item href="#">
+                <span class="item-icon"><i class="fas fa-cogs"></i></span>
+                Setting</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-button (click)="[drawer.toggle(),showSideMenuToggle()]" *ngIf="showSideMenu"><i
+                    class="fas fa-bars fa-2x"></i></button>
+            <div class="items-bar">
+                <button mat-button>
+                    <a class="item-bar" [routerLink]="['/home']">HOME</a>
+                </button>
+                <button mat-button>
+                    <a class="item-bar" [routerLink]="['/home']">Sign out</a>
+                </button>
+            </div>
+        </mat-toolbar>
+    </mat-sidenav-content>
+</mat-sidenav-container>

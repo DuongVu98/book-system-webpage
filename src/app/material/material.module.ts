@@ -9,7 +9,10 @@ const material = [
 	materialModule.MatTabsModule,
 	materialModule.MatFormFieldModule,
 	materialModule.MatButtonModule,
-	materialModule.MatToolbarModule
+	materialModule.MatToolbarModule,
+	materialModule.MatSidenavModule,
+	materialModule.MatListModule,
+	materialModule.MatButtonModule
 ];
 
 @NgModule({

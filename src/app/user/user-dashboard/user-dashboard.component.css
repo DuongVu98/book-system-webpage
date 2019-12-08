@@ -1,0 +1,22 @@
+.side-toolbar {
+    width: 300px;
+}
+.back-icon {
+    margin-left: auto;
+}
+.item-icon {
+    margin: 20px;
+}
+
+.items-bar {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.item-bar {
+    color: white;
+    text-decoration: none;
+}
+button:focus {
+    outline: 0;
+}
