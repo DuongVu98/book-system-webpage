@@ -9,10 +9,11 @@ export class UserDashboardComponent implements OnInit {
 	showSideMenu: boolean;
 
 	constructor() {
-		this.showSideMenu = true;
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.showSideMenu = true;
+	}
 
 	showSideMenuToggle(){
 		this.showSideMenu = !this.showSideMenu;

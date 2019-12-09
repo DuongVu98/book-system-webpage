@@ -13,7 +13,8 @@ const material = [
 	materialModule.MatSidenavModule,
 	materialModule.MatListModule,
 	materialModule.MatButtonModule,
-	materialModule.MatGridListModule
+	materialModule.MatGridListModule,
+	materialModule.MatCardModule
 ];
 
 @NgModule({

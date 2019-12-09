@@ -1,5 +1,8 @@
+<div class="background">
+    <img src="assets/images/background.jpg" alt="">
+</div>
 <div class="container">
-    <mat-grid-list cols="2">
+    <mat-grid-list cols="2" class="grid">
         <mat-grid-tile>
             <div class="illustration-image">
                 <img src="assets/images/books-lover-illustration.svg" alt="">
@@ -7,24 +10,28 @@
         </mat-grid-tile>
         <mat-grid-tile>
             <div class="login-container">
-                <form>
-                    <h2>Welcome</h2>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <h5>Username</h5>
-                        <input class="input" type="text">
+                <mat-card>
+                    <div class="input-fields">
+                        <h2>Welcome</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <mat-form-field>
+                                <input type="text" matInput placeholder="Username">
+                            </mat-form-field>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <mat-form-field>
+                                <input type="password" matInput placeholder="Password">
+                            </mat-form-field>
+                        </div>
+                        <a href="#">Forgot password?</a>
+                        <button mdbBtn outline="true" gradient="aqua" rounded="true" mdbWavesEffect [routerLink]="['/home']">Sign
+                            in</button>
                     </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <h5>Password</h5>
-                        <input class="input" type="password">
-                    </div>
-                    <a href="#">Forgot password?</a>
-                    <button type="button" mdbBtn color="primary" mdbWavesEffect [routerLink]="['/home']">Sign
-                        in</button>
-                </form>
+                </mat-card>
+
             </div>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
-<i class="fas fa-user"></i>
