@@ -9,6 +9,7 @@ import { WelcomePageComponent } from "./welcome-page/welcome-page.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { RouterModule } from "@angular/router";
 import { templateRoutes } from "./template.routes";
+import { MdbootstrapModule } from "../mdbootstrap/mdbootstrap.module";
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { templateRoutes } from "./template.routes";
 	imports: [
 		CommonModule,
 		MaterialModule,
+		MdbootstrapModule,
 		RouterModule.forChild(templateRoutes)
 	],
 	exports: [HomePageComponent, WelcomePageComponent]

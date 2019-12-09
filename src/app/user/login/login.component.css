@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.illustration-image img {
+    width: 500px;
+}
+
+.login-container {
+    text-align: center;
+}
+
+form h2 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    margin: 15px 0;
+    color: #333;
+}
+.input-field > * {
+    display: inline;
+    margin: 3px;
+}
+.input-field {
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.input {
+    border: none;
+}

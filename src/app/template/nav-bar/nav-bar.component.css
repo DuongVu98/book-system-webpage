@@ -6,8 +6,15 @@
     padding-right: 60px;
 }
 .item {
-    padding-left: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 .space {
     flex: auto;
+}
+
+.login-button {
+}
+.login-button:focus {
+    outline: 0;
 }

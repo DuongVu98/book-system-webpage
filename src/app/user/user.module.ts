@@ -4,9 +4,10 @@ import { UserDashboardComponent } from "./user-dashboard/user-dashboard.componen
 import { MaterialModule } from "../material/material.module";
 import { RouterModule } from "@angular/router";
 import { userRoutes } from "./user.routes";
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
-	declarations: [UserDashboardComponent],
+	declarations: [UserDashboardComponent, LoginComponent],
 	imports: [CommonModule, MaterialModule, RouterModule.forChild(userRoutes)],
 	exports: [UserDashboardComponent]
 })

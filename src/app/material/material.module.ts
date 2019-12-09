@@ -12,7 +12,8 @@ const material = [
 	materialModule.MatToolbarModule,
 	materialModule.MatSidenavModule,
 	materialModule.MatListModule,
-	materialModule.MatButtonModule
+	materialModule.MatButtonModule,
+	materialModule.MatGridListModule
 ];
 
 @NgModule({
