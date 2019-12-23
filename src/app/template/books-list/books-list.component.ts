@@ -21,8 +21,8 @@ export class BooksListComponent implements OnInit {
 				this.books = res;
 			},
 			err => {
-				// this.router.navigate(["/login"]);
-				console.log("error: \n" + err);
+				this.router.navigate(["/login"]);
+				// console.log("error: \n" + err);
 			}
 		);
 	}

@@ -1,0 +1,10 @@
+.books-list-grid {
+    /* display: inline-flex; */
+    /* align-items: center; */
+    margin-top: 50px;
+}
+
+.book-card {
+    width: 300px;
+    margin: 20px;
+}
