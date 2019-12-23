@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { RouterModule } from "@angular/router";
 import { templateRoutes } from "./template.routes";
 import { MdbootstrapModule } from "../mdbootstrap/mdbootstrap.module";
+import { BookModule } from "../book/book.module";
 
 @NgModule({
 	declarations: [
@@ -24,6 +25,7 @@ import { MdbootstrapModule } from "../mdbootstrap/mdbootstrap.module";
 		CommonModule,
 		MaterialModule,
 		MdbootstrapModule,
+		BookModule,
 		RouterModule.forChild(templateRoutes)
 	],
 	exports: [HomePageComponent, WelcomePageComponent]
