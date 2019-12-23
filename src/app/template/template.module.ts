@@ -11,6 +11,7 @@ import { RouterModule } from "@angular/router";
 import { templateRoutes } from "./template.routes";
 import { MdbootstrapModule } from "../mdbootstrap/mdbootstrap.module";
 import { BookModule } from "../book/book.module";
+import { BooksListComponent } from './books-list/books-list.component';
 
 @NgModule({
 	declarations: [
@@ -19,7 +20,8 @@ import { BookModule } from "../book/book.module";
 		ContentComponent,
 		FootBarComponent,
 		WelcomePageComponent,
-		PageNotFoundComponent
+		PageNotFoundComponent,
+		BooksListComponent
 	],
 	imports: [
 		CommonModule,
