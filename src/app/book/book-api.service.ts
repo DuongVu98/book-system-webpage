@@ -1,13 +1,30 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { Book } from "../models/book.model";
+import { environment } from "../../environments/environment";
 
-@Injectable()
+(window as any).process = {
+	env: { DEBUG: undefined }
+};
+
+@Injectable({
+	providedIn: "root"
+})
 export class BookApiService {
-	private host = process.env.LOCAL_GATEWAY_HOST;
+	private host = environment.localGatewayHost;
 
 	constructor(private httpClient: HttpClient) {}
 
-	getBooks() {
-		return this.httpClient.get(`${this.host}/api/user/books-list`);
+	setHeader(): HttpHeaders {
+		return new HttpHeaders({
+			"Content-Type": "application/json"
+		});
+	}
+
+	getBooks(): Observable<Book[]> {
+		return this.httpClient.get<Book[]>(`${this.host}/api/user/books-list`, {
+			headers: this.setHeader()
+		});
 	}
 }

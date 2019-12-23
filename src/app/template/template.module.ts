@@ -11,7 +11,9 @@ import { RouterModule } from "@angular/router";
 import { templateRoutes } from "./template.routes";
 import { MdbootstrapModule } from "../mdbootstrap/mdbootstrap.module";
 import { BookModule } from "../book/book.module";
-import { BooksListComponent } from './books-list/books-list.component';
+import { BooksListComponent } from "./books-list/books-list.component";
+import { BookCardComponent } from "./book-card/book-card.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	declarations: [
@@ -21,12 +23,14 @@ import { BooksListComponent } from './books-list/books-list.component';
 		FootBarComponent,
 		WelcomePageComponent,
 		PageNotFoundComponent,
-		BooksListComponent
+		BooksListComponent,
+		BookCardComponent
 	],
 	imports: [
 		CommonModule,
 		MaterialModule,
 		MdbootstrapModule,
+		HttpClientModule,
 		BookModule,
 		RouterModule.forChild(templateRoutes)
 	],

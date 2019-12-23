@@ -15,15 +15,14 @@ export class BooksListComponent implements OnInit {
 		private router: Router
 	) {}
 
-	ngOnInit() {}
-
-	getBooks() {
+	ngOnInit() {
 		this.bookApiService.getBooks().subscribe(
 			res => {
 				this.books = res;
 			},
 			err => {
-				this.router.navigate(["/login"]);
+				// this.router.navigate(["/login"]);
+				console.log("error: \n" + err);
 			}
 		);
 	}
