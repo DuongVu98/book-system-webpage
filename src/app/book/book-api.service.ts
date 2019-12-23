@@ -4,10 +4,6 @@ import { Observable } from "rxjs";
 import { Book } from "../models/book.model";
 import { environment } from "../../environments/environment";
 
-(window as any).process = {
-	env: { DEBUG: undefined }
-};
-
 @Injectable({
 	providedIn: "root"
 })
@@ -26,5 +22,14 @@ export class BookApiService {
 		return this.httpClient.get<Book[]>(`${this.host}/api/user/books-list`, {
 			headers: this.setHeader()
 		});
+	}
+
+	getPostedBooks(): Observable<Book[]> {
+		return this.httpClient.get<Book[]>(
+			`${this.host}/api/user/posted-books`,
+			{
+				headers: this.setHeader()
+			}
+		);
 	}
 }
