@@ -10,6 +10,10 @@ import { appRoutes } from "./app.routes";
 import { UserModule } from "./user/user.module";
 import { BookApiService } from "./book/book-api.service";
 import { UserAuthenticationService } from "./service/user-authentication.service";
+import { StoreModule } from "@ngrx/store";
+import { reducers, metaReducers } from "./state/app.reducer";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
 
 @NgModule({
 	declarations: [AppComponent],
@@ -19,7 +23,18 @@ import { UserAuthenticationService } from "./service/user-authentication.service
 		UserModule,
 		BrowserAnimationsModule,
 		MaterialModule,
-		RouterModule.forRoot(appRoutes, { useHash: true })
+		RouterModule.forRoot(appRoutes, { useHash: true }),
+		StoreModule.forRoot(reducers, {
+			metaReducers,
+			runtimeChecks: {
+				strictStateImmutability: true,
+				strictActionImmutability: true
+			}
+		}),
+		StoreDevtoolsModule.instrument({
+			maxAge: 25,
+			logOnly: environment.production
+		})
 	],
 	providers: [BookApiService, UserAuthenticationService],
 	bootstrap: [AppComponent]

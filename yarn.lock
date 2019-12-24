@@ -327,6 +327,31 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
   integrity sha512-XiUPoS79r1G7PcpnNtq85TJ7inJWe0v+b5oZJZKb0pGHNIV6+UiNeQWiFGmuQ0aj7GEhnD/v9iqxIsjuRKtEnQ==
 
+"@ngrx/effects@^8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-8.6.0.tgz#a0d7339597a5128c5cf896ddcf93f73406a45860"
+  integrity sha512-JdyJLQbv/wnE0ZPY9DcDOtF9PzJuzsKWmIWgIGunHF18wdjk5O8Zpkcrxq18wDRL6geg5UTtNJRMvTQhpDbzow==
+
+"@ngrx/entity@^8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-8.6.0.tgz#63e7875d0e83e552249b8b75bb9b6aba248cae2a"
+  integrity sha512-Qq+ANgsHd2/i7gam1j05hxA8kPWQyf5ewtCLlbtMJI/qLmvA6ruSE8PYNNwrt90wm4BWdks2zKE5ERzvPzto0w==
+
+"@ngrx/router-store@^8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-8.6.0.tgz#3bda275722e476e8604fd57af81f37687662d673"
+  integrity sha512-4Dvl6dfOj15lNZ63wucRNcTEHUi0hEqapOBVRslfAsnaSRo2t1lOvfX7b68IbxPiqzabTBdIeEkJwAC2q/rZZg==
+
+"@ngrx/store-devtools@^8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-8.6.0.tgz#ac287e4b094d099781cdc9f3281039c0e988296c"
+  integrity sha512-PWZmiOZE0J56GFfZpuzKLb7w0K2c6OXZSp/eWDeAvtdHFD4/Nas1i4TXtiWWMWWnSZeNs0hNIg4nFJXi2EddJQ==
+
+"@ngrx/store@^8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.6.0.tgz#8540c5bd40b33fc2f443e7e86f47c0d801b8f413"
+  integrity sha512-K4cvCEa+5hw9qrETQWO+Cha3YbVCAT8yaIKJr/N35KntTL9mQMjoL+51JWLZfBwPV0e19CFgJIyrBnVUTxwr2A==
+
 "@ngtools/webpack@8.1.3":
   version "8.1.3"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.1.3.tgz#9df049b14539109b60590a1ca64cbd80b6e49909"
@@ -2067,6 +2092,11 @@ deep-extend@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
   integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
+
+deepmerge@^3.2.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
+  integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
 
 default-gateway@^4.2.0:
   version "4.2.0"
@@ -4568,6 +4598,13 @@ neo-async@^2.5.0, neo-async@^2.6.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+ngrx-store-localstorage@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-8.0.0.tgz#da307a54188347803f68566ff927d20dcb9c810b"
+  integrity sha512-3AHqw1AeXDXU/Hgxlh5fjP/srgGuP8BJR2uQ6ViGLeKwMEQDZuQfwd8zu9+bPZcvIxbAcxjWoGCVJXYEkBlxmg==
+  dependencies:
+    deepmerge "^3.2.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
