@@ -16,13 +16,13 @@
                         <div class="input-field">
                             <i class="fas fa-user"></i>
                             <mat-form-field>
-                                <input type="text" matInput placeholder="Username">
+                                <input type="text" matInput placeholder="Username" [(ngModel)]="loginInput.username">
                             </mat-form-field>
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
                             <mat-form-field>
-                                <input type="password" matInput placeholder="Password">
+                                <input type="password" matInput placeholder="Password" [(ngModel)]="loginInput.password">
                             </mat-form-field>
                         </div>
                         <a href="#">Forgot password?</a>
