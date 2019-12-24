@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { UserAuthenticationService } from "src/app/service/user-authentication.service";
 import { Router } from "@angular/router";
+import { Store, select } from "@ngrx/store";
+import { User } from "src/app/models/user.model";
 
 @Component({
 	selector: "user-login",
@@ -9,30 +11,55 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 	private loginInput;
-	private loggedUser;
-	private user;
+	private loggedUser: User;
+	private isLogged: boolean;
+	private error: boolean;
 
 	constructor(
 		private userAuthenticationService: UserAuthenticationService,
-		private router: Router
+		private router: Router,
+		private store: Store<any>
 	) {
-		this.loggedUser = false;
+		this.isLogged = false;
 		this.loginInput = {
 			username: null,
 			password: null
 		};
-		this.user = null;
+		this.loggedUser = new User();
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.store.pipe(select("user")).subscribe(user => {
+			if (user) {
+				if (user.isLogged === true) {
+					this.router.navigate(["/home"]);
+				}
+			}
+		});
+	}
 
 	login() {
-		this.user = this.userAuthenticationService.login(this.loginInput);
+		this.userAuthenticationService.login(this.loginInput).subscribe(
+			res => {
+				this.loggedUser = res;
+				this.stateStoring(this.loggedUser);
+				this.router.navigate(["/home"]);
+			},
+			err => {
+				if (err.status === 401) {
+					this.error = true;
+				}
+			}
+		);
+	}
 
-		if (this.user != null) {
-			this.loggedUser = true;
-		} else {
-			this.loggedUser = false;
-		}
+	stateStoring(user: User) {
+		this.store.dispatch({
+			type: "LOGIN",
+			payload: {
+				user: user,
+				isLogged: true
+			}
+		});
 	}
 }

@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { User } from "../models/user.model";
 
 @Injectable({
 	providedIn: "root"
@@ -12,9 +14,9 @@ export class UserAuthenticationService {
 
 	constructor(private httpClient: HttpClient) {}
 
-	login(user) {
+	login(user): Observable<User> {
 		this.loginParametersUrl =
 			this.loginUrl + "/" + user.username + "/" + user.password;
-		return this.httpClient.get(this.loginParametersUrl);
+		return this.httpClient.get<User>(this.loginParametersUrl);
 	}
 }
