@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.store.pipe(select("user")).subscribe(user => {
-			if (user) {
-				if (user.isLogged === true) {
+		this.store.pipe(select("user")).subscribe(users => {
+			if (users) {
+				if (users.isLogged === true) {
 					this.router.navigate(["/home"]);
 				}
 			}

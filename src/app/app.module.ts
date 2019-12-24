@@ -14,6 +14,7 @@ import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./state/app.reducer";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
 	declarations: [AppComponent],
@@ -21,15 +22,12 @@ import { environment } from "../environments/environment";
 		BrowserModule,
 		TemplateModule,
 		UserModule,
+		FormsModule,
 		BrowserAnimationsModule,
 		MaterialModule,
 		RouterModule.forRoot(appRoutes, { useHash: true }),
 		StoreModule.forRoot(reducers, {
-			metaReducers,
-			runtimeChecks: {
-				strictStateImmutability: true,
-				strictActionImmutability: true
-			}
+			metaReducers
 		}),
 		StoreDevtoolsModule.instrument({
 			maxAge: 25,

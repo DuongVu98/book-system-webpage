@@ -1,7 +1,8 @@
 import * as fromRoot from "../../state/app.reducer";
+import { User } from "src/app/models/user.model";
 
 export interface UserState {
-	user: any;
+	user: User;
 	isLogged: boolean;
 }
 

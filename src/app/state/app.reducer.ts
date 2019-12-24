@@ -5,7 +5,7 @@ import { localStorageSync } from "ngrx-store-localstorage";
 export interface AppState {}
 
 export const reducers: ActionReducerMap<AppState> = {
-	user: userReducer
+	users: userReducer
 };
 
 export function localStorageSyncReducer(
