@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 import { appRoutes } from "./app.routes";
 import { UserModule } from "./user/user.module";
 import { BookApiService } from "./book/book-api.service";
+import { UserAuthenticationService } from "./service/user-authentication.service";
 
 @NgModule({
 	declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { BookApiService } from "./book/book-api.service";
 		MaterialModule,
 		RouterModule.forRoot(appRoutes, { useHash: true })
 	],
-	providers: [BookApiService],
+	providers: [BookApiService, UserAuthenticationService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
