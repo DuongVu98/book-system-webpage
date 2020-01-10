@@ -29,11 +29,13 @@ export class LoginComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.store.pipe(select("user")).subscribe(users => {
-			if (users) {
-				if (users.isLogged === true) {
-					this.router.navigate(["/home"]);
-				}
+		this.userAuthenticationService.checkLogin().then(userIsLogged => {
+			if (userIsLogged) {
+				this.userAuthenticationService.getUserFromState().then(user => {
+					this.loggedUser = user;
+					this.isLogged = true;
+				});
+				this.router.navigate(["/home"]);
 			}
 		});
 	}
