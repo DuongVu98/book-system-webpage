@@ -14,7 +14,7 @@ export function localStorageSyncReducer(
 	return localStorageSync({
 		keys: ["users"],
 		rehydrate: true
-	})(reducers);
+	})(reducer);
 }
 
 export const metaReducers: Array<MetaReducer<any, any>> = [

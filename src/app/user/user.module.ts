@@ -12,6 +12,8 @@ import { UserSettingsComponent } from "./user-settings/user-settings.component";
 import { UserPostedBooksComponent } from "./user-posted-books/user-posted-books.component";
 import { UserOrderedBooksComponent } from "./user-ordered-books/user-ordered-books.component";
 import { FormsModule } from "@angular/forms";
+import { StoreModule } from "@ngrx/store";
+import * as fromUser from "./user-state/user.reducer";
 
 @NgModule({
 	declarations: [
@@ -27,6 +29,7 @@ import { FormsModule } from "@angular/forms";
 		CommonModule,
 		MaterialModule,
 		FormsModule,
+		StoreModule.forFeature("users", fromUser.userReducer),
 		RouterModule.forChild(userRoutes),
 		MDBBootstrapModule
 	],
