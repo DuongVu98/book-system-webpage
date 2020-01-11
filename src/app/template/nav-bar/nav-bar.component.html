@@ -6,6 +6,7 @@
         <a class="item" [routerLink]="['/about']">About</a>
         <a class="item" [routerLink]="['/profile']">Profile</a>
         
-        <button type="button" mdbBtn color="primary" mdbWavesEffect [routerLink]="['/login']">Sign in</button>
+        <button type="button" mdbBtn color="primary" mdbWavesEffect *ngIf="!userIsLogged" [routerLink]="['/login']">Sign in</button>
+        <button type="button" mdbBtn color="primary" mdbWavesEffect *ngIf="userIsLogged" (click)="logoutButtonClick()">Log out</button>
     </div>
 </mat-toolbar>

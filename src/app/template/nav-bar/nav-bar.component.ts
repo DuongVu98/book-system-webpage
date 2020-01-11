@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import { UserStateService } from "src/app/service/user-state.service";
 
 @Component({
 	selector: "template-nav-bar",
@@ -6,7 +7,14 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./nav-bar.component.css"]
 })
 export class NavBarComponent implements OnInit {
-	constructor(){}
+	@Input()
+	private userIsLogged: boolean;
+
+	constructor(private userStateService: UserStateService) {}
 	ngOnInit() {}
 
+	logoutButtonClick() {
+		this.userStateService.deleteUserFromStore();
+		window.location.reload();
+	}
 }

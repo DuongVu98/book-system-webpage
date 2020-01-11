@@ -14,6 +14,7 @@ import { UserOrderedBooksComponent } from "./user-ordered-books/user-ordered-boo
 import { FormsModule } from "@angular/forms";
 import { StoreModule } from "@ngrx/store";
 import * as fromUser from "./user-state/user.reducer";
+import { AddBookDialogComponent } from './posted-books/add-book-dialog/add-book-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -23,7 +24,8 @@ import * as fromUser from "./user-state/user.reducer";
 		UserProfileComponent,
 		UserSettingsComponent,
 		UserPostedBooksComponent,
-		UserOrderedBooksComponent
+		UserOrderedBooksComponent,
+		AddBookDialogComponent
 	],
 	imports: [
 		CommonModule,
@@ -33,6 +35,7 @@ import * as fromUser from "./user-state/user.reducer";
 		RouterModule.forChild(userRoutes),
 		MDBBootstrapModule
 	],
-	exports: [UserDashboardComponent]
+	exports: [UserDashboardComponent],
+	entryComponents: [AddBookDialogComponent]
 })
 export class UserModule {}

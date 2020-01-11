@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { BookApiService } from "src/app/book/book-api.service";
+import { BookApiService } from "src/app/service/book-api.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -22,7 +22,6 @@ export class BooksListComponent implements OnInit {
 			},
 			err => {
 				this.router.navigate(["/login"]);
-				// console.log("error: \n" + err);
 			}
 		);
 	}

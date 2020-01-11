@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UserStateService } from "src/app/service/user-state.service";
 
 @Component({
 	selector: "template-home-page",
@@ -6,7 +7,18 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./home-page.component.css"]
 })
 export class HomePageComponent implements OnInit {
-	constructor() {}
+	private userIsLogged: boolean;
 
-	ngOnInit() {}
+	constructor(private userStateService: UserStateService) {
+		this.userIsLogged = false;
+	}
+
+	ngOnInit() {
+		this.userStateService.checkLoginFromState().then(userIsLogged => {
+			console.log("user is logged or not" + userIsLogged);
+			if (userIsLogged) {
+				this.userIsLogged = true;
+			}
+		});
+	}
 }

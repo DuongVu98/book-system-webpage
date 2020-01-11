@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UserStateService } from 'src/app/service/user-state.service';
 
 @Component({
 	selector: "user-dashboard",
@@ -8,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
 export class UserDashboardComponent implements OnInit {
 	showSideMenu: boolean;
 
-	constructor() {
+	constructor(private userStateService: UserStateService) {
 	}
 
 	ngOnInit() {
@@ -17,5 +18,10 @@ export class UserDashboardComponent implements OnInit {
 
 	showSideMenuToggle(){
 		this.showSideMenu = !this.showSideMenu;
+	}
+
+	logoutButtonClick(){
+		this.userStateService.deleteUserFromStore();
+		window.location.reload();
 	}
 }

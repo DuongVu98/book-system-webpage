@@ -28,7 +28,7 @@
                     <a class="item-bar" [routerLink]="['/home']">HOME</a>
                 </button>
                 <button mat-button>
-                    <a class="item-bar" [routerLink]="['/home']">Sign out</a>
+                    <a class="item-bar" (click)="logoutButtonClick()" [routerLink]="['/home']">Sign out</a>
                 </button>
             </div>
         </mat-toolbar>

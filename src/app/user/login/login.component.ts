@@ -54,8 +54,4 @@ export class LoginComponent implements OnInit {
 			}
 		);
 	}
-
-	logout() {
-		this.userStateService.deleteUserFromStore();
-	}
 }

@@ -1,0 +1,16 @@
+.title > * {
+    display: inline-block;
+}
+
+i {
+    cursor: pointer;
+}
+
+.input-fields {
+    height: 100%;
+}
+
+.input-fields > * {
+    vertical-align: top;
+    width: 100%
+}

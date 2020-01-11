@@ -8,7 +8,7 @@ import { MaterialModule } from "./material/material.module";
 import { RouterModule } from "@angular/router";
 import { appRoutes } from "./app.routes";
 import { UserModule } from "./user/user.module";
-import { BookApiService } from "./book/book-api.service";
+import { BookApiService } from "./service/book-api.service";
 import { UserAuthenticationService } from "./service/user-authentication.service";
 import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./state/app.reducer";

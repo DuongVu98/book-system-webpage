@@ -14,7 +14,9 @@ const material = [
 	materialModule.MatListModule,
 	materialModule.MatButtonModule,
 	materialModule.MatGridListModule,
-	materialModule.MatCardModule
+	materialModule.MatCardModule,
+	materialModule.MatFormFieldModule,
+	materialModule.MatInputModule
 ];
 
 @NgModule({

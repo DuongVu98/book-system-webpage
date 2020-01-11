@@ -53,7 +53,11 @@ export class UserStateService {
 
 	deleteUserFromStore() {
 		this.store.dispatch({
-			type: "LOGOUT"
+			type: "LOGOUT",
+			payload: {
+				user: null,
+				isLogged: false
+			}
 		});
 	}
 }

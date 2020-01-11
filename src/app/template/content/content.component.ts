@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { BookApiService } from "src/app/book/book-api.service";
+import { BookApiService } from "src/app/service/book-api.service";
 
 @Component({
 	selector: "template-content",

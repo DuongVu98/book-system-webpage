@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { BookApiService } from "src/app/service/book-api.service";
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { AddBookDialogComponent } from "../posted-books/add-book-dialog/add-book-dialog.component";
 
 @Component({
 	selector: "user-posted-books",
@@ -6,7 +9,18 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./user-posted-books.component.css"]
 })
 export class UserPostedBooksComponent implements OnInit {
-	constructor() {}
+	constructor(
+		private bookApiService: BookApiService,
+		private matDialog: MatDialog
+	) {}
 
 	ngOnInit() {}
+
+	async addBook() {
+		const dialogConfig = new MatDialogConfig();
+		dialogConfig.disableClose = true;
+		dialogConfig.autoFocus = true;
+		dialogConfig.width = "60%";
+		this.matDialog.open(AddBookDialogComponent, dialogConfig);
+	}
 }

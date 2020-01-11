@@ -32,4 +32,8 @@ export class BookApiService {
 			}
 		);
 	}
+
+	postBook(inputData): Observable<Book> {
+		return this.httpClient.post<any>(`${this.host}/api/user/add-book`, inputData);
+	}
 }

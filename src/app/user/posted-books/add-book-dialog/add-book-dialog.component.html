@@ -1,0 +1,27 @@
+<div>
+    <div class="title">
+        <h4 mat-dialog-title>Add new book</h4>
+        <i class="fas fa-times float-right" (click)="onClose()"></i>
+    </div>
+    <mat-dialog-content>
+        <mat-grid-list cols="2">
+            <mat-grid-tile>
+                <div class="input-fields">
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Book Title" [(ngModel)]="newBook.title">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Author" [(ngModel)]="newBook.author">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="number" matInput placeholder="Number of books" [(ngModel)]="newBook.amount">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+        </mat-grid-list>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close color="primary" (click)="addBook()">Add</button>
+    </mat-dialog-actions>
+</div>
