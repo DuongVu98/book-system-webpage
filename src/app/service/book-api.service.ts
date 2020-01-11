@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Book } from "../models/book.model";
 import { environment } from "../../environments/environment";
+import { UserStateService } from "./user-state.service";
 
 @Injectable({
 	providedIn: "root"
@@ -10,7 +11,10 @@ import { environment } from "../../environments/environment";
 export class BookApiService {
 	private host = environment.localGatewayHost;
 
-	constructor(private httpClient: HttpClient) {}
+	constructor(
+		private httpClient: HttpClient,
+		private userStateService: UserStateService
+	) {}
 
 	setHeader(): HttpHeaders {
 		return new HttpHeaders({
@@ -33,7 +37,23 @@ export class BookApiService {
 		);
 	}
 
+	async prePostBook(inputData){
+		let modifiedData;
+		await this.userStateService.getUserFromState().then(user => {
+			modifiedData = {
+				...inputData,
+				userId: user.id
+			}
+		});
+
+		return modifiedData;
+	}
 	postBook(inputData): Observable<Book> {
-		return this.httpClient.post<any>(`${this.host}/api/user/add-book`, inputData);
+		// return this.httpClient.post<any>(
+		// 	`${this.host}/api/user/add-book`,
+		// 	this.prePostBook(inputData)
+		// );
+		console.log("modified data - "+this.prePostBook(inputData));
+		return null;
 	}
 }
