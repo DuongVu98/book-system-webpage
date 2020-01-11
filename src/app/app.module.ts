@@ -15,6 +15,7 @@ import { reducers, metaReducers } from "./state/app.reducer";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { FormsModule } from "@angular/forms";
+import { UserStateService } from "./service/user-state.service";
 
 @NgModule({
 	declarations: [AppComponent],
@@ -34,7 +35,7 @@ import { FormsModule } from "@angular/forms";
 			logOnly: environment.production
 		})
 	],
-	providers: [BookApiService, UserAuthenticationService],
+	providers: [BookApiService, UserAuthenticationService, UserStateService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

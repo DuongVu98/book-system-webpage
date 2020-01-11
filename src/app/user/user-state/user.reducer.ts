@@ -24,6 +24,13 @@ export function userReducer(state = initUserState, action): UserState {
 				isLogged: true
 			};
 		}
+		case "LOGOUT": {
+			return {
+				...state,
+				user: null,
+				isLogged: false
+			};
+		}
 		default: {
 			return state;
 		}

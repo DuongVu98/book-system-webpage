@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { UserAuthenticationService } from "src/app/service/user-authentication.service";
 import { Router } from "@angular/router";
-import { Store, select } from "@ngrx/store";
 import { User } from "src/app/models/user.model";
+import { UserStateService } from "src/app/service/user-state.service";
 
 @Component({
 	selector: "user-login",
@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
 
 	constructor(
 		private userAuthenticationService: UserAuthenticationService,
-		private router: Router,
-		private store: Store<any>
+		private userStateService: UserStateService,
+		private router: Router
 	) {
 		this.isLogged = false;
 		this.loginInput = {
@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.userAuthenticationService.checkLogin().then(userIsLogged => {
+		this.userStateService.checkLoginFromState().then(userIsLogged => {
 			if (userIsLogged) {
-				this.userAuthenticationService.getUserFromState().then(user => {
+				this.userStateService.getUserFromState().then(user => {
 					this.loggedUser = user;
 					this.isLogged = true;
 				});
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 		this.userAuthenticationService.login(this.loginInput).subscribe(
 			res => {
 				this.loggedUser = res;
-				this.stateStoring(this.loggedUser);
+				this.userStateService.saveUserToStore(this.loggedUser);
 				this.router.navigate(["/home"]);
 			},
 			err => {
@@ -55,13 +55,7 @@ export class LoginComponent implements OnInit {
 		);
 	}
 
-	stateStoring(user: User) {
-		this.store.dispatch({
-			type: "LOGIN",
-			payload: {
-				user: user,
-				isLogged: true
-			}
-		});
+	logout() {
+		this.userStateService.deleteUserFromStore();
 	}
 }
