@@ -26,10 +26,6 @@ export class AddBookDialogComponent implements OnInit {
 	ngOnInit() {}
 
 	async addBook() {
-		// await this.bookApiService.postBook2(this.newBook).subscribe(newBook => {
-		// 	console.log(newBook);
-		// });
-
 		this.bookPresenterService.bookPresenter(this.newBook).then(data => {
 			console.log("modified data - " + JSON.stringify(data));
 			this.bookApiService.postBook(data).subscribe(

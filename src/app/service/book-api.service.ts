@@ -34,7 +34,7 @@ export class BookApiService {
 
 	getPostedBooks(): Observable<Book[]> {
 		return this.httpClient.get<Book[]>(
-			`${this.host}/api/user/posted-books`,
+			`${this.host}/api/profile/posted-books`,
 			{
 				headers: this.setHeader()
 			}
@@ -62,10 +62,4 @@ export class BookApiService {
 		console.log("before post - "+JSON.stringify(inputData));
 		return this.httpClient.post<any>(`${this.host}/api/user/add-book`, inputData);
 	}
-
-	// postBook2(inputData): Observable<Book>{
-	// 	this.prePostBook(inputData).then(data => {
-	// 		return this.httpClient.post<any>(`${this.host}/api/user/add-book`, data);
-	// 	})
-	// }
 }
