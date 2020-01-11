@@ -2,14 +2,18 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Book } from "../models/book.model";
+import { User } from "../models/user.model";
 import { environment } from "../../environments/environment";
 import { UserStateService } from "./user-state.service";
+import { map } from "rxjs/operators";
 
 @Injectable({
 	providedIn: "root"
 })
 export class BookApiService {
 	private host = environment.localGatewayHost;
+
+	private inputData;
 
 	constructor(
 		private httpClient: HttpClient,
@@ -37,23 +41,31 @@ export class BookApiService {
 		);
 	}
 
-	async prePostBook(inputData){
-		let modifiedData;
-		await this.userStateService.getUserFromState().then(user => {
-			modifiedData = {
+	prePostBook(inputData): Promise<string> {
+		return this.userStateService.getUserIdFromState().then(id => {
+			return {
 				...inputData,
-				userId: user.id
-			}
+				userId: id
+			};
 		});
+	}
 
-		return modifiedData;
+	async prePostTest(inputData) {
+		await this.userStateService.getUserIdFromState().then(id => {
+			this.inputData = {
+				...inputData,
+				userId: id
+			};
+		});
 	}
-	postBook(inputData): Observable<Book> {
-		// return this.httpClient.post<any>(
-		// 	`${this.host}/api/user/add-book`,
-		// 	this.prePostBook(inputData)
-		// );
-		console.log("modified data - "+this.prePostBook(inputData));
-		return null;
+	postBook(inputData) {
+		console.log("before post - "+JSON.stringify(inputData));
+		return this.httpClient.post<any>(`${this.host}/api/user/add-book`, inputData);
 	}
+
+	// postBook2(inputData): Observable<Book>{
+	// 	this.prePostBook(inputData).then(data => {
+	// 		return this.httpClient.post<any>(`${this.host}/api/user/add-book`, data);
+	// 	})
+	// }
 }

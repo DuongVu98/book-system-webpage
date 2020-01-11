@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BookApiService } from "src/app/service/book-api.service";
 import { MatDialogRef } from "@angular/material";
+import { BookPresenterService } from "src/app/service/book-presenter.service";
 
 @Component({
 	selector: "user-add-book-dialog",
@@ -12,7 +13,8 @@ export class AddBookDialogComponent implements OnInit {
 
 	constructor(
 		private bookApiService: BookApiService,
-		private matDialogRef: MatDialogRef<AddBookDialogComponent>
+		private matDialogRef: MatDialogRef<AddBookDialogComponent>,
+		private bookPresenterService: BookPresenterService
 	) {
 		this.newBook = {
 			title: null,
@@ -24,9 +26,20 @@ export class AddBookDialogComponent implements OnInit {
 	ngOnInit() {}
 
 	async addBook() {
-		await this.bookApiService.postBook(this.newBook).subscribe(book => {
-			console.log(book);
-			return book;
+		// await this.bookApiService.postBook2(this.newBook).subscribe(newBook => {
+		// 	console.log(newBook);
+		// });
+
+		this.bookPresenterService.bookPresenter(this.newBook).then(data => {
+			console.log("modified data - " + JSON.stringify(data));
+			this.bookApiService.postBook(data).subscribe(
+				newBook => {
+					console.log(newBook);
+				},
+				err => {
+					console.log(err);
+				}
+			);
 		});
 	}
 

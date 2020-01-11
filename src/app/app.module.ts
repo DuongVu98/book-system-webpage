@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 import { appRoutes } from "./app.routes";
 import { UserModule } from "./user/user.module";
 import { BookApiService } from "./service/book-api.service";
+import { BookPresenterService } from "./service/book-presenter.service";
 import { UserAuthenticationService } from "./service/user-authentication.service";
 import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./state/app.reducer";
@@ -35,7 +36,7 @@ import { UserStateService } from "./service/user-state.service";
 			logOnly: environment.production
 		})
 	],
-	providers: [BookApiService, UserAuthenticationService, UserStateService],
+	providers: [BookApiService, UserAuthenticationService, UserStateService, BookPresenterService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

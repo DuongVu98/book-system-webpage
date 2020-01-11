@@ -41,6 +41,19 @@ export class UserStateService {
 		return this.loggedUserFromState;
 	}
 
+	async getUserIdFromState(): Promise<string> {
+		let id;
+		await this.store
+			.pipe(select("users"))
+			.subscribe(loggedUserFromState => {
+				if (loggedUserFromState) {
+					id = loggedUserFromState.user.id;
+				}
+			});
+
+		return id;
+	}
+
 	saveUserToStore(user: User) {
 		this.store.dispatch({
 			type: "LOGIN",
