@@ -1,7 +1,7 @@
 <div class="container user-books-content">
     <mat-tab-group mat-align-tabs="end">
         <mat-tab label="Posted books">
-            <user-posted-books></user-posted-books>
+            <user-posted-books [userBooks]="userBooks"></user-posted-books>
         </mat-tab>
         <mat-tab label="Ordered books">
             <user-ordered-books></user-ordered-books>

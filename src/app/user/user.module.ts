@@ -16,6 +16,7 @@ import { StoreModule } from "@ngrx/store";
 import * as fromUser from "./user-state/user.reducer";
 import { AddBookDialogComponent } from "./user-posted-books/add-book-dialog/add-book-dialog.component";
 import { BooksListComponent } from "./user-posted-books/books-list/books-list.component";
+import { BookItemComponent } from "./user-posted-books/book-item/book-item.component";
 
 @NgModule({
 	declarations: [
@@ -27,7 +28,8 @@ import { BooksListComponent } from "./user-posted-books/books-list/books-list.co
 		UserPostedBooksComponent,
 		UserOrderedBooksComponent,
 		AddBookDialogComponent,
-		BooksListComponent
+		BooksListComponent,
+		BookItemComponent
 	],
 	imports: [
 		CommonModule,

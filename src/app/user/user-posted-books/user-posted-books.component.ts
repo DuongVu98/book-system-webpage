@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { BookApiService } from "src/app/service/book-api.service";
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { AddBookDialogComponent } from "./add-book-dialog/add-book-dialog.component";
+import { Book } from 'src/app/models/book.model';
 
 @Component({
 	selector: "user-posted-books",
@@ -9,6 +10,10 @@ import { AddBookDialogComponent } from "./add-book-dialog/add-book-dialog.compon
 	styleUrls: ["./user-posted-books.component.css"]
 })
 export class UserPostedBooksComponent implements OnInit {
+
+	@Input()
+	private userBooks: Book[];
+
 	constructor(
 		private bookApiService: BookApiService,
 		private matDialog: MatDialog

@@ -2,10 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Book } from "../models/book.model";
-import { User } from "../models/user.model";
 import { environment } from "../../environments/environment";
 import { UserStateService } from "./user-state.service";
-import { map } from "rxjs/operators";
 
 @Injectable({
 	providedIn: "root"
@@ -32,34 +30,20 @@ export class BookApiService {
 		});
 	}
 
-	getPostedBooks(): Observable<Book[]> {
+	getPostedBooks(id): Observable<Book[]> {
 		return this.httpClient.get<Book[]>(
-			`${this.host}/api/profile/posted-books`,
+			`${this.host}/api/profile/posted-books/${id}`,
 			{
 				headers: this.setHeader()
 			}
 		);
 	}
 
-	prePostBook(inputData): Promise<string> {
-		return this.userStateService.getUserIdFromState().then(id => {
-			return {
-				...inputData,
-				userId: id
-			};
-		});
-	}
-
-	async prePostTest(inputData) {
-		await this.userStateService.getUserIdFromState().then(id => {
-			this.inputData = {
-				...inputData,
-				userId: id
-			};
-		});
-	}
 	postBook(inputData) {
-		console.log("before post - "+JSON.stringify(inputData));
-		return this.httpClient.post<any>(`${this.host}/api/user/add-book`, inputData);
+		console.log("before post - " + JSON.stringify(inputData));
+		return this.httpClient.post<any>(
+			`${this.host}/api/user/add-book`,
+			inputData
+		);
 	}
 }
