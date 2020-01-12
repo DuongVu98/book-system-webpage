@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BookApiService } from "src/app/service/book-api.service";
 import { MatDialog, MatDialogConfig } from "@angular/material";
-import { AddBookDialogComponent } from "../posted-books/add-book-dialog/add-book-dialog.component";
+import { AddBookDialogComponent } from "./add-book-dialog/add-book-dialog.component";
 
 @Component({
 	selector: "user-posted-books",
