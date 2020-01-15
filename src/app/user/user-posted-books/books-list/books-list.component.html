@@ -1,1 +1,5 @@
-<p>books-list works!</p>
+<div class="books-list">
+    <div *ngFor="let book of books" class="books-list-item">
+        <user-book-item [book]="book"></user-book-item>
+    </div>
+</div>

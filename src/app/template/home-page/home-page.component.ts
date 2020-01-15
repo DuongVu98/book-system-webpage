@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
 
 	ngOnInit() {
 		this.userStateService.checkLoginFromState().then(userIsLogged => {
-			console.log("user is logged or not" + userIsLogged);
+			console.log("user is logged or not --> " + userIsLogged);
 			if (userIsLogged) {
 				this.userIsLogged = true;
 			}

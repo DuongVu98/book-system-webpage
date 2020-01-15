@@ -4,6 +4,7 @@ import { User } from "src/app/models/user.model";
 export interface UserState {
 	user: User;
 	isLogged: boolean;
+	accessToken: string;
 }
 
 export interface AppState extends fromRoot.AppState {
@@ -12,7 +13,8 @@ export interface AppState extends fromRoot.AppState {
 
 export const initUserState: UserState = {
 	user: null,
-	isLogged: false
+	isLogged: false,
+	accessToken: null
 };
 
 export function userReducer(state = initUserState, action): UserState {
@@ -21,14 +23,16 @@ export function userReducer(state = initUserState, action): UserState {
 			return {
 				...state,
 				user: action.payload.user,
-				isLogged: true
+				isLogged: true,
+				accessToken: action.payload.accessToken
 			};
 		}
 		case "LOGOUT": {
 			return {
 				...state,
 				user: action.payload.user,
-				isLogged: action.payload.isLogged
+				isLogged: action.payload.isLogged,
+				accessToken: action.payload.accessToken
 			};
 		}
 		default: {

@@ -1,0 +1,11 @@
+.content >* {
+    display: inline-block;
+}
+
+.content > .book-info {
+    padding-left: 50px;
+}
+
+.book-info {
+    vertical-align: middle;
+}

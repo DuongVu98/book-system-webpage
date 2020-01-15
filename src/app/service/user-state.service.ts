@@ -8,6 +8,7 @@ import { Store, select } from "@ngrx/store";
 export class UserStateService {
 	private userIsLogged = false;
 	private loggedUserFromState: User;
+	private accessToken: string;
 
 	constructor(private store: Store<any>) {}
 
@@ -18,6 +19,7 @@ export class UserStateService {
 				if (loggedUserFromState) {
 					if (loggedUserFromState.isLogged === true) {
 						this.userIsLogged = true;
+						this.accessToken = loggedUserFromState.accessToken;
 					} else {
 						this.userIsLogged = false;
 					}
@@ -54,12 +56,26 @@ export class UserStateService {
 		return id;
 	}
 
-	saveUserToStore(user: User) {
+	async getAccessTokenFromState(): Promise<string> {
+		let accessToken;
+		await this.store
+			.pipe(select("users"))
+			.subscribe(loggedUserFromState => {
+				if (loggedUserFromState) {
+					accessToken = loggedUserFromState.accessToken;
+				}
+			});
+
+		return accessToken;
+	}
+
+	saveUserToStore(user: User, accessToken: string) {
 		this.store.dispatch({
 			type: "LOGIN",
 			payload: {
 				user,
-				isLogged: true
+				isLogged: true,
+				accessToken: accessToken
 			}
 		});
 	}
@@ -69,7 +85,8 @@ export class UserStateService {
 			type: "LOGOUT",
 			payload: {
 				user: null,
-				isLogged: false
+				isLogged: false,
+				accessToken: null
 			}
 		});
 	}

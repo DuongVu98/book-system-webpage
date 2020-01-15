@@ -10,17 +10,24 @@ import { UserStateService } from "./user-state.service";
 })
 export class BookApiService {
 	private host = environment.localGatewayHost;
-
+	private accessToken: string;
 	private inputData;
 
 	constructor(
 		private httpClient: HttpClient,
 		private userStateService: UserStateService
-	) {}
+	) {
+		this.userStateService.getAccessTokenFromState().then(token => {
+			this.accessToken = token;
+		});
+	}
 
 	setHeader(): HttpHeaders {
 		return new HttpHeaders({
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "*",
+			"Authorization": "Bearer " + this.accessToken
 		});
 	}
 

@@ -1,1 +1,17 @@
-<p>books-item works!</p>
+<div>
+    <mdb-card>
+        <div class="row">
+            <div class="col-sm-9 content">
+                <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Smiley face" width="150px">
+                <div class="book-info">
+                    <h3 class="book-title">{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+            </div>
+        </div>
+    </mdb-card>
+</div>

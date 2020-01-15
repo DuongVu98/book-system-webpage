@@ -3,6 +3,7 @@ import { UserAuthenticationService } from "src/app/service/user-authentication.s
 import { Router } from "@angular/router";
 import { User } from "src/app/models/user.model";
 import { UserStateService } from "src/app/service/user-state.service";
+import { LoginResponse } from "src/app/models/login-response.model";
 
 @Component({
 	selector: "user-login",
@@ -12,6 +13,7 @@ import { UserStateService } from "src/app/service/user-state.service";
 export class LoginComponent implements OnInit {
 	private loginInput;
 	private loggedUser: User;
+	private loginResponse: LoginResponse;
 	private isLogged: boolean;
 	private error: boolean;
 
@@ -43,9 +45,13 @@ export class LoginComponent implements OnInit {
 	login() {
 		this.userAuthenticationService.login(this.loginInput).subscribe(
 			res => {
-				this.loggedUser = res;
-				this.userStateService.saveUserToStore(this.loggedUser);
-				this.router.navigate(["/home"]);
+				this.loginResponse = res;
+				console.log(res);
+				if (this.loginResponse.user != null) {
+					this.loggedUser = res.user;
+					this.userStateService.saveUserToStore(this.loggedUser, res.accessToken);
+					this.router.navigate(["/home"]);
+				}
 			},
 			err => {
 				if (err.status === 401) {

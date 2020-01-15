@@ -1,9 +1,5 @@
-<p>user-posted-books works!</p>
+<h2 class="posted-books-title">Posted books</h2>
+<button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect class="float-right" (click)="addBook()">Add
+    book</button>
 
-<button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect class="float-right" (click)="addBook()">Add book</button>
-
-<div class="books-list">
-    <div *ngFor="let book of userBooks">
-        <user-book-item [book]="book"></user-book-item>
-    </div>
-</div>
+<user-books-list [books]="userBooks"></user-books-list>
